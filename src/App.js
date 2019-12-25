@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import HomePage from './Home'
+import UsersList from './Users'
+import PostsList from './Posts'
+import UserShow from './UserShow'
+import PostShow from './PostShow'
+
+function App(props) {
+    return (
+        <BrowserRouter>
+            <div className="navbar navbar-expand-sm bg-dark navbar-dark">
+                <div className="">
+
+                    <div className="navbar-nav">
+                        <Link to="/" className="nav-link">Home</Link>
+                        <Link to="/users" className="nav-link">Users</Link>
+                        <Link to="/posts" className="nav-link">Posts</Link>
+                    </div>
+                </div>
+            </div>
+
+            <Route path="/" component={HomePage} exact={true} />
+            <Route path="/users" component={UsersList} />
+            <Route path="/posts" component={PostsList} />
+            <Route path="/user/:id" component={UserShow} />
+            <Route path="/post/:id/:userId" component={PostShow} />
+            
+
+        </BrowserRouter>
+
+    )
 }
-
-export default App;
+export default App
