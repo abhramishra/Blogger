@@ -1,11 +1,11 @@
 import React from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-import HomePage from './Home'
-import UsersList from './Users'
-import PostsList from './Posts'
-import UserShow from './UserShow'
-import PostShow from './PostShow'
+import HomePage from './components/Home'
+import UsersList from './components/Users'
+import PostsList from './components/Posts'
+import UserShow from './components/UserShow'
+import PostShow from './components/PostShow'
 
 function App(props) {
     return (

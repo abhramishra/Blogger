@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios';
+import axios from '../config/axios';
 import { Link } from 'react-router-dom'
 
 class UserShow extends React.Component {
@@ -12,7 +12,7 @@ class UserShow extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`http://jsonplaceholder.typicode.com/users/${this.props.match.params.id}`)
+        axios.get(`/users/${this.props.match.params.id}`)
          .then((response) => {
              const user = response.data
              this.setState({user})
@@ -20,7 +20,7 @@ class UserShow extends React.Component {
          .catch((err) => {
              alert(err)
          })
-        axios.get(`http://jsonplaceholder.typicode.com/posts?userId=${this.props.match.params.id}`)
+        axios.get(`/posts?userId=${this.props.match.params.id}`)
          .then((response) => {
              const postsData = response.data
              this.setState({postsData})

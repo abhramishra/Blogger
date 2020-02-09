@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axios from '../config/axios'
 import { Link } from 'react-router-dom'
 
 class UsersList extends React.Component {
@@ -10,7 +10,7 @@ class UsersList extends React.Component {
         }
     }
     componentDidMount() {
-        axios.get('http://jsonplaceholder.typicode.com/users')
+        axios.get('/users')
          .then((response) => {
             const users = response.data
             this.setState({users})
